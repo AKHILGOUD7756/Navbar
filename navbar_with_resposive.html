@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Navbar with Offcanvas Accordion</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+<style>
+body{margin:0;padding:0}
+
+/* NAV LINKS */
+.nav-link{
+  font-size:18px;
+  font-weight:400;
+  color:#000 !important;
+  
+}
+.navitem{
+    border-right: 1px solid black;
+    height: 25px;
+}
+.nav-link:hover{color:#c40000 !important}
+
+/* TOP BAR */
+.topnavbar{
+  border-bottom:1px solid #ff911c;
+  padding:5px 15px;
+  background:#fff;
+  width:fit-content;
+  margin:auto;
+}
+.toptext a{
+  font-size:18px;
+  text-decoration:none;
+  color:black;
+}
+.Admission{font-weight:600}
+
+/* LOGO */
+.navbar-brand img{
+  width:230px;
+  position:relative;
+  top:-24px;
+  left:20px;
+}
+
+/* DROPDOWN */
+.dropdown-menu a:hover{
+  background:#f8f9fa;
+  color:#c40000 !important;
+}
+/* .navitem ::after{
+  border-right:1px solid #000000;
+} */
+@media(max-width:1230px){
+.nav-link {
+    font-size: 16px;
+}
+}
+
+@media(max-width:1170px){
+.navbar-brand img {
+    width: 200px;
+    position: relative;
+    top: -10px;
+    left: 20px;
+}
+.nav-link {
+    font-size: 14px;
+}
+}
+@media(max-width:1070px){
+      .navbar-brand img {
+        width: 170px;
+        left: 5px;
+    }
+}
+@media(max-width:1050px){
+/* 
+  .nav-link {
+    font-size: 16px;
+ 
+} */
+ .navbar-brand img {
+    top: -13px;
+    left: 20px;
+}
+.navbar-brand img {
+    width: 180px;
+}
+  .navbar .dropdown:hover > .dropdown-menu {
+    display: block;
+    margin-top: 0;
+  }
+  .navbar .dropdown-menu {
+    border-radius: 0;
+  }
+      .navbar-brand img {
+        width: 190px;
+      
+    }
+}
+/* MOBILE */
+@media(max-width:991px){
+.navbar{
+  padding: 15px 30px !important;
+}
+.navitem{
+ border-right: none;
+    height:inherit;
+}
+.ms-auto {
+    /* margin-left: auto !important; */
+}
+.align-items-center {
+        align-items: normal !important;
+    }
+
+  .navbar-brand img{
+    position:static;
+    width:180px;
+  }
+
+  .navbarlst{display:none}
+
+  .offcanvas .nav-item{
+    border-bottom:1px solid #eee;
+  }
+
+  .offcanvas .nav-link{
+    padding:15px 10px;
+    font-size:17px;
+    font-weight:600;
+    color:#c40000 !important;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+  }
+
+  .offcanvas .nav-link::after{
+    content:"-";
+    width:32px;
+    height:32px;
+    background:#f1f1f1;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    color:#00bcd4;
+    transition:.3s;
+  }
+
+  .offcanvas .nav-link.active::after{
+     content:"+";
+    width:32px;
+    height:32px;
+    /* transform:rotate(180deg); */
+  }
+
+  .offcanvas .dropdown-menu{
+    display:block;
+    position:static;
+    border:none;
+    padding-left:15px;
+    max-height:0;
+    overflow:hidden;
+    transition:max-height .3s ease;
+    background:transparent;
+  }
+
+  .offcanvas .dropdown-menu a{
+    padding:10px 0;
+    font-size:15px;
+  }
+
+  .offcanvas .btn{
+    margin:20px 10px;
+    width:calc(100% - 20px);
+  }
+}
+@media(max-width:350px){
+    .navbar {
+        padding: 15px 15px !important;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- TOP BAR -->
+<div class="container-fluid navbarlst">
+  <div class="row pt-2">
+    <div class="col text-end">
+      <div class="topnavbar d-inline-flex align-items-center">
+        <p class="m-0 me-3 toptext">
+          <i class="bi bi-telephone"></i>
+          <a href="tel:+91 9246905445">+91 9246905445</a>
+        </p>
+        <p class="m-0 me-3 toptext Admission">
+          <a href="#">Admission Open</a>
+        </p>
+        <i class="bi bi-search"></i>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg bg-white shadow-sm">
+<div class="container-fluid">
+
+<a class="navbar-brand" href="#">
+<img src="header-logo.png">
+</a>
+
+<button class="navbar-toggler" data-bs-toggle="offcanvas" data-bs-target="#mobileMenu">
+<span class="navbar-toggler-icon"></span>
+</button>
+
+<div class="collapse navbar-collapse" id="mainNavbar">
+<ul class="navbar-nav ms-auto align-items-center" id="navWrapper">
+
+<li class="nav-item navitem dropdown">
+<a class="nav-link py-0 px-3">About</a>
+<ul class="dropdown-menu">
+<li><a class="dropdown-item">Our School</a></li>
+<li><a class="dropdown-item">Vision & Mission</a></li>
+<li><a class="dropdown-item">Why Choose Us</a></li>
+</ul>
+</li>
+
+<li class="nav-item navitem dropdown">
+<a class="nav-link py-0 px-3">Curriculum</a>
+<ul class="dropdown-menu">
+<li><a class="dropdown-item">State Board</a></li>
+<li><a class="dropdown-item">CBSE</a></li>
+</ul>
+</li>
+
+<li class="nav-item navitem dropdown">
+<a class="nav-link py-0 px-3">Beyond Academics</a>
+<ul class="dropdown-menu">
+<li><a class="dropdown-item">Sports</a></li>
+<li><a class="dropdown-item">Labs</a></li>
+<li><a class="dropdown-item">NCC</a></li>
+</ul>
+</li>
+
+<li class="nav-item navitem dropdown">
+<a class="nav-link py-0 px-3">Admissions</a>
+<ul class="dropdown-menu">
+<li><a class="dropdown-item">Admission Process</a></li>
+<li><a class="dropdown-item">Brochure</a></li>
+<li><a class="dropdown-item">Student Admission Process</a></li>
+</ul>
+</li>
+
+
+<li class="nav-item navitem dropdown">
+<a class="nav-link py-0 px-3">Results</a>
+<ul class="dropdown-menu">
+<li><a class="dropdown-item">Academic Results</a></li>
+
+</ul>
+</li>
+
+
+<li class="nav-item navitem dropdown">
+<a class="nav-link py-0 px-3">Resources</a>
+<ul class="dropdown-menu">
+ <li><a class="dropdown-item">Blog</a></li>
+ <li><a class="dropdown-item">News & Updates</a></li>
+ <li><a class="dropdown-item">Photo Gallery</a></li>
+</ul>
+</li>
+
+<li class="nav-item">
+<a class="nav-link py-0 px-3">Contact</a>
+</li>
+
+<li class="nav-item">
+<a class="btn btn-danger ms-2 px-4">Enquire Now</a>
+</li>
+
+</ul>
+</div>
+</div>
+</nav>
+
+<!-- OFFCANVAS -->
+<div class="offcanvas offcanvas-end" id="mobileMenu">
+<div class="offcanvas-header">
+<h5>Menu</h5>
+<button class="btn-close" data-bs-dismiss="offcanvas"></button>
+</div>
+<div class="offcanvas-body" id="offcanvasBody"></div>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+const navWrapper   = document.getElementById("navWrapper");
+const offcanvasBody = document.getElementById("offcanvasBody");
+const mainNavbar    = document.getElementById("mainNavbar");
+const offcanvasEl   = document.getElementById("mobileMenu");
+const offcanvas     = bootstrap.Offcanvas.getOrCreateInstance(offcanvasEl);
+
+/* MOVE MENU + AUTO CLOSE */
+function handleMenu(){
+  if(window.innerWidth < 992){
+    if(!offcanvasBody.contains(navWrapper)){
+      offcanvasBody.appendChild(navWrapper);
+      mainNavbar.classList.remove("show");
+    }
+  }else{
+    offcanvas.hide();
+    if(!mainNavbar.contains(navWrapper)){
+      mainNavbar.appendChild(navWrapper);
+    }
+    resetAccordion();
+  }
+}
+
+/* MOBILE ACCORDION */
+document.addEventListener("click",e=>{
+  if(window.innerWidth >= 992) return;
+
+  const link = e.target.closest(".nav-link");
+  if(!link) return;
+
+  const submenu = link.nextElementSibling;
+  if(!submenu || !submenu.classList.contains("dropdown-menu")) return;
+
+  e.preventDefault();
+
+  document.querySelectorAll(".offcanvas .dropdown-menu").forEach(menu=>{
+    if(menu !== submenu){
+      menu.style.maxHeight=null;
+      menu.previousElementSibling.classList.remove("active");
+    }
+  });
+
+  if(submenu.style.maxHeight){
+    submenu.style.maxHeight=null;
+    link.classList.remove("active");
+  }else{
+    submenu.style.maxHeight=submenu.scrollHeight+"px";
+    link.classList.add("active");
+  }
+});
+
+/* RESET */
+function resetAccordion(){
+  document.querySelectorAll(".dropdown-menu").forEach(m=>m.style.maxHeight=null);
+  document.querySelectorAll(".nav-link").forEach(l=>l.classList.remove("active"));
+}
+
+window.addEventListener("load",handleMenu);
+window.addEventListener("resize",handleMenu);
+</script>
+
+</body>
+</html>
